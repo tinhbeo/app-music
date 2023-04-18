@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .items-header {
+    @apply w-10 h-10 rounded-full bg-alpha-bg flex items-center justify-center mr-[10px];
+  }
+}
+
+@layer utilities {
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  img {
+    @apply w-full object-cover h-full
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  margin-top: 30px;
+}

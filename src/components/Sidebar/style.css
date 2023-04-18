@@ -1,0 +1,20 @@
+/* @apply before:absolute before:block before:inset-0 before:pointer-events-none before:bg-border-alpha before:border-l-[3px] before:border-purple-primary */
+/* .sidebar_list li.active {
+    @apply bg-border-alpha relative
+}
+
+
+.sidebar_list li.active::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none bg-border-alpha border-l-[3px] border-purple-primary
+} */
+
+
+.sidebar_list a.active {
+    @apply relative text-white
+}
+
+.sidebar_list a.active::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none bg-border-alpha border-l-[3px] border-purple-primary
+}
