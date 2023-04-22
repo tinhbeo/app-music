@@ -14,8 +14,7 @@ export default {
         "dark-alpha": "rgba(0,0,0,0.5)",
         "border-alpha": "hsla(0,0%,100%,0.1)",
         "text-gray": "hsla(0,0%,100%,0.5)",
-        "hover-icon": "hsla(0,0%,100%,0.3)",
-        scrollbar: "hsla(0,0%,100%,0.3)",
+        "text-gray-2": "hsla(0,0%,100%,0.3)",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

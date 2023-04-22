@@ -10,7 +10,6 @@ import Media from "@/components/Media";
 import MusicCard from "@/components/MusicCard";
 import FavoriteSingers from "@/components/FavoriteSingers";
 import { favoriteSingers } from "@/static/data.js";
-import { newMusics } from "@/static/data.js";
 import SlideSingers from "@/components/SlideSingers";
 import MediaRanking from "@/components/MediaRanking";
 import MediaPlayer from "@/components/MediaPlayer";
@@ -21,6 +20,7 @@ const Home = () => {
   const [trendingMusics, setTrendingMusics] = useState([]);
   const [newReleases, setNewReleases] = useState([]);
   const [topViews, setTopViews] = useState([]);
+  const [song, setSong] = useState(null);
   useEffect(() => {
     (async () => {
       let [trendingMusicRes, newReleasesRes, topViewsRes] = await Promise.all([
@@ -61,7 +61,7 @@ const Home = () => {
             <div className="flex gap-7">
               {trendingMusics.slice(0, 9).map((music) => (
                 <div className="overflow-hidden w-[150px]" key={music._id}>
-                  <MusicCard image={music.image_music} />
+                  <MusicCard image={music.image_music} isSmall />
                 </div>
               ))}
             </div>
@@ -73,7 +73,18 @@ const Home = () => {
             </h3>
             <div className="flex gap-7">
               {trendingMusics.slice(9, 14).map((music) => (
-                <div className="w-1/5 h-80 overflow-hidden" key={music._id}>
+                <div
+                  className="w-1/5 h-80 overflow-hidden"
+                  key={music._id}
+                  onClick={() =>
+                    setSong({
+                      srcMusic: music.src_music,
+                      image: music.image_music,
+                      nameMusic: music.name_music,
+                      singer: music.name_singer,
+                    })
+                  }
+                >
                   <MusicCard
                     image={music.image_music}
                     nameMusic={music.name_music}
@@ -180,9 +191,11 @@ const Home = () => {
               </Swiper>
             </div>
           </section>
-          <section>
-            <MediaPlayer />
-          </section>
+          {song && (
+            <section>
+              <MediaPlayer {...song} />
+            </section>
+          )}
         </>
       )}
     </>

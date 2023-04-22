@@ -37,7 +37,7 @@ const Media = ({ vip, singer, image, srcMusic, nameMusic }) => {
         </div>
       </div>
       <Tippy content="Khác">
-        <div className="text-base w-9 h-9 items-center justify-center flex-shrink-0 rounded-full hover:bg-hover-icon cursor-pointer hidden group-hover:flex">
+        <div className="text-base w-9 h-9 items-center justify-center flex-shrink-0 rounded-full hover:bg-text-gray-2 cursor-pointer hidden group-hover:flex">
           <FiMoreHorizontal />
         </div>
       </Tippy>

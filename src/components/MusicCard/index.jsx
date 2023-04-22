@@ -4,19 +4,21 @@ import { Fragment } from "react";
 import { BsPlayFill } from "react-icons/bs";
 import { FiHeart, FiMoreHorizontal } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-const MusicCard = ({ image, nameMusic, singer }) => {
+const MusicCard = ({ image, nameMusic, singer, isSmall }) => {
   const singers = singer ? singer.split(", ") : [];
   return (
     <div className="flex flex-col h-full">
       <div className="relative group cursor-pointer rounded-md overflow-hidden select-none mb-2">
         <img
-          className="group-hover:scale-110 ease-in-out duration-500"
+          className={`group-hover:scale-110 ease-in-out duration-500 ${
+            !isSmall ? 'h-60' : ""
+          }`}
           src={image}
           alt="image-music"
         />
         <div className="group-hover:flex hidden gap-2 items-center justify-center absolute top-0 inset-0 before:absolute before:inset-0 before:bg-dark-alpha">
           <Tippy content="Thêm vào thư viện">
-            <button className="hover:bg-hover-icon p-1 rounded-full z-10">
+            <button className="hover:bg-text-gray-2 p-1 rounded-full z-10">
               <FiHeart className="text-xl" />
             </button>
           </Tippy>
@@ -24,7 +26,7 @@ const MusicCard = ({ image, nameMusic, singer }) => {
             <BsPlayFill className="text-4xl" />
           </div>
           <Tippy content="Khác">
-            <button className="hover:bg-hover-icon p-1 rounded-full z-10">
+            <button className="hover:bg-text-gray-2 p-1 rounded-full z-10">
               <FiMoreHorizontal className="text-xl" />
             </button>
           </Tippy>
